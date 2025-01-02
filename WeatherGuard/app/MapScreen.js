@@ -7,7 +7,7 @@ import GradientBackground from '../components/GradientBackground';
 
 const Map= () => {
   const navigation = useNavigation(); // Hook to get the navigation object
-  const [selectedTab, setSelectedTab] = useState('alerts');
+  const [selectedTab, setSelectedTab] = useState('map');
 
   return (
     
