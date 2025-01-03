@@ -5,9 +5,9 @@ import { useNavigation } from '@react-navigation/native';
 import GradientBackground from '../components/GradientBackground';
 
 
-const Notification = () => {
+const Map= () => {
   const navigation = useNavigation(); // Hook to get the navigation object
-  const [selectedTab, setSelectedTab] = useState('alerts');
+  const [selectedTab, setSelectedTab] = useState('map');
 
   return (
     
@@ -21,7 +21,7 @@ const Notification = () => {
         {/**Content here MAAMBONG  */}
 
      
-        <Text>CONTENT HERE MAAMBONG, CHRISTIAN REY!!!!</Text>
+        <Text>MAP OBER HEREE</Text>
 
 
 
@@ -106,4 +106,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Notification;
+export default Map;

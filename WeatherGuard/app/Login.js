@@ -1,63 +1,42 @@
-import React, { useState } from 'react';
-import { View, TextInput, Text, TouchableOpacity, StyleSheet, KeyboardAvoidingView, Platform ,Alert} from 'react-native';
+// screens/LoginScreen.js
+import React from 'react';
+import { View, TextInput, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import GradientBackground from '../components/GradientBackground';
 
-const Login = ({ navigation }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    if (!email || !password) {
-      Alert.alert('Error', 'Please enter both email and password.');
-      return;
-    }
-    navigation.navigate('Authenticated');
-  };
 
+const LoginScreen = ({ navigation }) => {
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={{ flex: 1 }}
-    >
-      <GradientBackground>
-        <TextInput
-          style={styles.input}
-          placeholder="Email"
-          placeholderTextColor="rgba(255, 255, 255, 0.5)"
-          value={email}
-          onChangeText={setEmail}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          placeholderTextColor="rgba(255, 255, 255, 0.5)"
-          secureTextEntry
-          value={password}
-          onChangeText={setPassword}
-        />
-        <TouchableOpacity style={styles.button} onPress={handleLogin}>
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
-          <Text style={styles.link}>Don't have an account? Register</Text>
-        </TouchableOpacity>
-      </GradientBackground>
-    </KeyboardAvoidingView>
+    <GradientBackground>
+      <Image source={require('../assets/images/small_logo.png')} style={styles.logo} />
+      <TextInput style={styles.input} placeholder="Email" placeholderTextColor='rgba(255, 255, 255, 0.2)' />
+      <TextInput style={styles.input} placeholder="Password" placeholderTextColor='rgba(255, 255, 255, 0.2)' secureTextEntry />
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('MainApp')}>
+        <Text style={styles.buttonText}>Login</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+        <Text style={styles.link}>Don't have an account? Register</Text>
+      </TouchableOpacity>
+    </GradientBackground>
   );
 };
 
 const styles = StyleSheet.create({
-  input: {
-    width: '90%',
+  logo: {
+    width: 50,
     height: 50,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    marginBottom: 20,
+  },
+  input: {
+    width: '80%',
+    height: 50,
+    backgroundColor:'rgba(255, 255, 255, 0.2)',
     borderRadius: 5,
     paddingHorizontal: 15,
     marginBottom: 15,
-    color: 'white',
   },
   button: {
-    width: '90%',
+    width: '80%',
     height: 50,
     backgroundColor: '#FCB316',
     borderRadius: 5,
@@ -75,4 +54,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default LoginScreen;
